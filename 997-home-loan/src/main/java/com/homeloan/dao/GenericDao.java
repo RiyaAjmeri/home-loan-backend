@@ -15,6 +15,11 @@ public class GenericDao {
 		return entityManager.merge(object); //merge works for insert and update both
 	}
 	
+	public <E> E fetchById(Class<E> clazz, Object pk) {
+		
+		E e= entityManager.find(clazz, pk); //find method generated select query
+		return e;
+	}
 	
 	
 }
